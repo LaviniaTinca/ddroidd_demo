@@ -35,6 +35,14 @@ const theme = createTheme({
         textAlign: 'left',
       },
 
+      buttonVariant: {
+        fontSize: '16px',
+        fontWeight: 400,
+        lineHeight: '21px',
+        letterSpacing: '0em',
+        textAlign: 'left',
+      },
+      
       errorVariant: {
         fontSize: '14px',
         fontWeight: 400,

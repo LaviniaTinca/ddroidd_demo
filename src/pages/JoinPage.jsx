@@ -410,7 +410,9 @@ const JoinPage = () => {
                     <button type="submit"
                     //  disabled={!formData.country || !formData.city}
                     >
-                    Join Us
+                        <Typography variant="buttonVariant" className='submission'>
+                            Join Us
+                        </Typography>
                     </button>
                 </section>
 
