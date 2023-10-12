@@ -6,7 +6,7 @@ const Footer = () => {
     <Fragment>
         <div className="footer">
             <Typography variant="footerVariant" className="footer-title">
-              Come to the dark side...
+              Come to the dark side... we have
             </Typography>
             <img src="/cookies.png" alt="cookie" />
         </div>
