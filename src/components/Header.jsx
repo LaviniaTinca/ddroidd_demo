@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { ReactComponent as Logo } from '../assets/img/ddroidd_logo.svg'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom';
+import Typography from '@mui/material/Typography'; 
 import JoinUsButton from './JoinUsButton';
 
 const Header = () => {
@@ -13,7 +14,9 @@ const Header = () => {
             <Link className='logo-container' to='/'>
                 <Logo className='logo' />
             </Link>
-                <h1 className='title'>Autumn - Winter Bootcamp</h1>
+                <Typography variant="headerVariant" className='title'>
+                    Autumn - Winter Bootcamp
+                </Typography>
             {isHomePage && <JoinUsButton />}
         </div>
     </Fragment>
