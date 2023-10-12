@@ -1,0 +1,51 @@
+.rectangle3 {
+    width: 1374px;
+    height: 851px;
+    top: 114px;
+    left: 273px;
+    background-color: #F4F5F8;
+
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0 auto; 
+
+    /* width: 70%; /* Set the width to 70% of the screen */
+    /* max-height: 600px;
+    background-color: #F4F5F8; */
+
+}
+
+.home-images{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    /* margin: 0 auto;  */
+}
+
+.home-image1 {
+    width: 903px;
+    height: 118px;
+}
+
+.home-image2 {
+    width: 434px;
+    height: 333px;
+}
+
+button {
+    width: 239px;
+    height: 47px;
+    background-color: #FCD400;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.home-page-btn {
+    margin-top: 12rem;
+}
