@@ -6,18 +6,9 @@ import '../styles/styles.css';
 
 const Layout = () => {
 
-  // const navigate = useNavigate()
-  // const isHomePage = window.location.pathname === '/'
-  // console.log(isHomePage)
-
-  // const isHomePage = true
   return (
     <Fragment>
-      <div className='navigation'>
-        <Header 
-        // showJoinUsButton={isHomePage}
-        />
-      </div>
+      <Header />
       <Outlet />
       <Footer/>
     </Fragment>

@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-// import '../pages/navigation/navigation.css';
 
 const Footer = () => {
   return (
@@ -8,7 +7,6 @@ const Footer = () => {
             <h2 className='footer-title'>Come to the light side... we have  </h2>
             <img src="/cookies.png" alt="cookie" />
         </div>
-        {/* <img src="/cookies.png" alt="cookie" /> */}
 
     </Fragment>
   )

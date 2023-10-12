@@ -190,10 +190,8 @@ const JoinPage = () => {
 
       if (!formData.phoneNumber) {
         newErrors.phoneNumber = 'Phone Number is required';
-      } else if (!/^\d{10}$/.test(formData.phoneNumber)) {
-        newErrors.phoneNumber = 'Phone Number must be a 10-digit number';
-    //   } else if (!/^\+\d{9}$/.test(formData.phoneNumber) || !/^\+\d{2} \d{3} \d{3} \d{3}$/.test(formData.phoneNumber)) {
-    //     newErrors.phoneNumber = 'Phone Number must be a like: +40 211 111 111 ';
+      } else if (!/^\+\d{11}$/.test(formData.phoneNumber) ) {
+        newErrors.phoneNumber = 'Phone Number must have 11 digits, like: +40 211 111 111 ';
        }
   
       if (!formData.email) {
@@ -210,11 +208,10 @@ const JoinPage = () => {
         newErrors.country = 'Country is required';
       }
 
-    //   if (!formData.city) {
-    //     newErrors.city = 'City is required';
-    //   }
+      if (!formData.city) {
+        newErrors.city = 'City is required';
+      }
   
-      // Update the errors state with the new errors
       setErrors(newErrors);
   
       // If there are errors, do not proceed with form submission
@@ -227,7 +224,7 @@ const JoinPage = () => {
     };
   
     return (
-      <div className='rectangle3'>
+      <div className='main-container'>
         <div className="form-container">
         <form onSubmit={handleSubmit}>
         <h1 className='form-title'>Application Form 4</h1>
@@ -247,17 +244,7 @@ const JoinPage = () => {
                 // required
                 />
             </div>
-            {/* <label htmlFor="firstName">First Name</label>
-            <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              value={formData.firstName}
-              onChange={handleChange}
-              className={errors.firstName ? 'error-input' : ''}
-              // required
-            /> */}
-            <div className="form-group">
+              <div className="form-group">
                 <label htmlFor="lastName" className='asterisk'>Last Name</label>
                 <input
                 type="text"
@@ -280,7 +267,7 @@ const JoinPage = () => {
                 value={formData.phoneNumber}
                 onChange={handleChange}
                 className={`input-field ${errors.phoneNumber ? 'error-input' : ''}`}
-                placeholder='+40 211 111 111 (now works with format 0742111111'
+                placeholder='+40 211 111 111 (without space)'
                 />
             </div>
             
@@ -303,7 +290,6 @@ const JoinPage = () => {
         </section>
         <section >
           <h3>Address</h3>
-          {/* <div className="form-group"> */}
           <div className="address-group">
           <label htmlFor="address1" className='asterisk'>Address Line 1</label>
             <input
@@ -361,7 +347,7 @@ const JoinPage = () => {
                     className={`input-field ${errors.state ? 'error-input' : ''}`}
                     >
                     <option value="">Select a state</option>
-                    {states.map((state) => ( /* Using the states array */
+                    {states.map((state) => (
                         <option key={state} value={state}>
                         {state}
                         </option>
@@ -413,7 +399,7 @@ const JoinPage = () => {
       </form>
         </div>
 
-      </div>
+       </div>
     );
 }
 
