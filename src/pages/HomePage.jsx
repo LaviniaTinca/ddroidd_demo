@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
-import { ReactComponent as HomeImage1 } from '../../assets/img/destructuring.svg'
-import { ReactComponent as HomeImage2 } from '../../assets/img/WebPage_logo.svg'
+import { ReactComponent as HomeImage1 } from '../assets/img/destructuring.svg'
+import { ReactComponent as HomeImage2 } from '../assets/img/WebPage_logo.svg'
 import { Link } from 'react-router-dom'
-import './home.css';
+// import './home.css';
 
 const HomePage = () => {
   return (

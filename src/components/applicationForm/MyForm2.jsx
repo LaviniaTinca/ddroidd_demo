@@ -17,26 +17,59 @@ const defaultFormData = {
 const MyForm = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState(defaultFormData);
-    const [data, setData] = useState([]);
+    const [countriesAndStates, setCountriesAndStates] = useState([]);
     const [states, setStates] = useState([]);
     const [cities, setCities] = useState([]);
     const [errors, setErrors] = useState({});
   
-    const fetchCountries = async () => {
+    const [shouldFetchCountries, setShouldStateCountries] = useState(false)
+    const fetchCountriesAndStates = async () => {
       try {
-        const response = await fetch('https://countriesnow.space/api/v0.1/countries');
+        const response = await fetch('https://countriesnow.space/api/v0.1/countries/states');
         const responseData = await response.json();
-        setData(responseData.data);
-      } catch (error) {
+        setCountriesAndStates(responseData.data);
+        //country = responseData.data.name
+        //states = responseData.data.states //here is an object {name: x, ...} I need to make an array only with names?
+    }
+       catch (error) {
         console.error(error);
       }
     };
-  
-    const fetchStates = async (country) => {
+
+    const fetchCountriesAndCities = async () => {
+        try {
+          const response = await fetch('https://countriesnow.space/api/v0.1/countries');
+          const responseData = await response.json();
+          setCountriesAndCities(responseData.data);
+          
+      }
+         catch (error) {
+          console.error(error);
+        }
+      };
+
+    const fetchStateAndCities = async () => {
+        //based on the country and state i get the cities
+        const response = await fetch('https://countriesnow.space/api/v0.1/countries/state/cities');
+        //[stateAndCities, setStateAndCities] ??
+        //json is like
+        // {
+        //     "error": false,
+        //     "msg": "cities in state Lagos of country Nigeria retrieved",
+        //     "data": [
+        //       "Apapa",
+        //       "Badagry",
+        //       "Ebute Ikorodu",
+                        //]
+        //     }
+    }
+
+      const fetchStates = async (country) => {
       try {
         // const response = await fetch(`https://your-state-api.com/countries/${country}`);
         const response = await fetch(`https://countriesnow.space/api/v0.1/countries/states`);
         const responseData = await response.json();
+        console.log(responseData)
         if (country === responseData.data.name){
             setStates(responseData.data.states);
 
@@ -57,7 +90,7 @@ const MyForm = () => {
     };
   
     useEffect(() => {
-      fetchCountries();
+        fetchCountriesAndStates();
     }, []);
   
     const handleChange = (event) => {
@@ -68,12 +101,44 @@ const MyForm = () => {
       });
   
       // When the country changes, reset the states and cities
-      if (name === 'country') {
-        setStates([]);
-        setCities([]);
-      }
+    //   if (name === 'country') {
+    //     setStates([]);
+    //     setCities([]);
+    //   }
     };
+
+    const handleCountryChange = (event) => {
+        const country = event.target.value;
+        setFormData({
+          ...formData,
+          country,
+          states: [], 
+          city: '', // Reset city when country changes
+        });
+
+        //daca s-a schimbat country
+        //rename data -> according to query used  countriesAndStates
+        //country = countryandStates.name
+        //states =
+    
+        const selectedCountryData = data.find((countryData) => countryData.name === country);
+        if (selectedCountryData) {
+            //in loc de selectedCountryData verific valoarea la country -> cand nu se selecteaza ce este? -> validarea -> return
+            if (selectedCountryData.states.length === 0 ){
+                //fetch citiesByCountry
+                //await
+                //setCities(...)
+            }
+            setStates(selectedCountryData.states)
+
+        } else {
+            //check //de else nu mai am nevoie
+          setStates([]);
+        }
+      };
   
+      //de adaugat handleState si handleCityChange
+      //de extras fetch-urile intr-un fisier utils
     const handleSubmit = (event) => {
       event.preventDefault();
       const newErrors = {};
@@ -93,6 +158,8 @@ const MyForm = () => {
     };
   
     return (
+        <div className='rectangle3'>
+
       <form onSubmit={handleSubmit}>
         <h2>Application Form 2</h2>
         <section>
@@ -152,10 +219,13 @@ const MyForm = () => {
           )}
         </div>
   
-        <button type="submit" disabled={!formData.country || !formData.city}>
+        <button type="submit" 
+        // disabled={!formData.country || !formData.city}
+        >
           Submit
         </button>
       </form>
+      </div>
     );
   };
   

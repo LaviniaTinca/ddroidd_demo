@@ -94,6 +94,8 @@ const defaultFormData = {
     };
   
     return (
+      <div className='rectangle3'>
+
       <form onSubmit={handleSubmit}>
         <h2>Application Form1</h2>
         <section>
@@ -220,10 +222,13 @@ const defaultFormData = {
           )}
         </div>
   
-        <button type="submit" disabled={!formData.country || !formData.city}>
+        <button type="submit"
+        //  disabled={!formData.country || !formData.city}
+         >
           Submit
         </button>
       </form>
+      </div>
     );
   };
   
