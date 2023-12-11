@@ -1,3 +1,12 @@
+# Ddroidd Demo 
+## Project Overview
+
+This repository contains my solution for the web application demo project based on the provided design specifications.
+
+The project is created with Create React App and includes implementation of a web application, form validation and API integration for dynamic data population. I also used some Material UI features.
+
+Thank you!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
